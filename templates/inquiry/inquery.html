@@ -1,0 +1,60 @@
+{%extends "index.html"%}
+{%block head%}
+<title>Inqiry</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<style type="text/css">
+	input{
+		width: 40%;
+	}
+	div{
+		width: 90%;
+		margin : 0 auto;
+	}
+	p{
+		text-align: center;
+        margin-top:40px;
+	}
+	.box{
+		width: 7%;
+		margin-top: 15px;
+	}
+body{
+   background:#f2f2f2;
+
+}
+
+</style>
+{%endblock%}
+
+{%block content%}
+<div class="box">
+
+    <img id="two" src={{img}} alter="logo" style="width:100%;">
+    <h6 style="text-align: center; margin-top:13px;">{{bank_id}}</h6>
+
+</div>
+<form id="inqury" action="{{ action_url }}" method="POST">
+    <!--text box part-->
+    <div class="mb-3">
+        <p>Please enter customer number or invoice number</p>
+        <input type="text" id="cus_code" name ="cus_code" autocomplete="off" class="form-control" placeholder="customer or invoice code"
+               style="border-radius: 16px; ">
+    </div>
+    <div class="d-grid gap-1">
+        <button class="btn btn-warning" id="subm" disabled=disabled type="submit" style="border-radius: 16px;width: 100%;  " >Next</button>
+    </div>
+    <div class="d-grid gap-1">
+        <a href="{{url_for('listbank')}}"><button type="button" style="width:100%; border-radius: 16px; margin-top: 10px;" class="btn btn-outline-secondary">Back</button></a>
+    </div>
+</form>
+<script>
+    inqury.addEventListener('input',()=>{
+        if(cus_code.value.length > 6 ){
+            subm.removeAttribute('disabled');
+        }else{
+            subm.setAttribute('disabled','disabled');
+        }
+    });
+
+</script>
+{%endblock%}

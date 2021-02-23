@@ -1,0 +1,87 @@
+{%extends "index.html"%}
+
+{%block head%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<title>displayinfor</title>
+	<style type="text/css">
+	.edit{
+
+					padding: 14%;
+                    border-radius: 10px;
+                    background-color: white;
+                    position: absolute;
+                    left: 150px;
+                    right: 150px;
+                    top: 30px;
+                    bottom: 30px;
+                    height: 150px;
+                    margin: auto;
+
+	}
+	.abc{
+		margin-top: -27%;
+	}
+	svg{
+		color:green;
+	}
+	body{
+		background-color: #00e6e6;
+	}
+</style>
+{%endblock%}
+
+{%block content%}
+<div class="edit">
+		<div class="abc" style="float : left; width: 100%;">
+			<div style="float : left; width: 100%; margin-top: 7px;text-align: center; color: green;"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+</svg><br>Verify</div>
+			<form action="{{ link }}" method="POST">
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;">Biller :</div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div style="float : left; width: 40%;margin-top: 7px;">{{supplier['name']}}</div>
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;">Customer Code :</div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div style="float : left; width: 40%;margin-top: 7px;">{{customer['code']}}</div>
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;">Name :</div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div style="float : left; width: 40%;margin-top: 7px;">{{customer['name']}}</div>
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;">Amount :</div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div style="float : left; width: 40%;margin-top: 7px;">
+				{%if supplier['allow_partial_payment']==false and supplier['allow_exceed_payment']==false%}
+
+				<input name="amount" id="formGroupExampleInput" type="text" value={{balance['bill_amount']}} style="border-radius: 10px; border : 1px solid #00e6e6;"readonly>
+
+					{%else%}
+
+				<input name="amount" id="-" type="number" value={{balance['bill_amount']}} style="border-radius: 10px; border : 1px solid #00e6e6;" >
+				{%endif%}
+				</form>
+			</div>
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;">Currency :</div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div name = "currency" style="float : left; width: 40%;margin-top: 7px; ">{{balance['currency']}}</div>
+			<div style="float : left; width: 35%; margin-top: 7px;text-align: right;"> </div>
+			<div style="float : left; width: 15%; margin-top: 7px;"></div>
+			<div style="float : left; width: 10%; margin-top: 7px;"></div>
+			<div style="float : left; width: 40%;margin-top: 7px;"> </div>
+		</div>
+		<div class="row" style="margin-top: 10px;">
+			{%if supplier['allow_partial_payment']==false and supplier['allow_exceed_payment']==false%}
+			<a href="{{url_for('fail')}}"><button class="btn btn-info" type="button" style="border-radius: 16px; width: 100%; margin:auto;" >Pay</button></a>
+                    {%else%}
+			<a href="/fial"><button class="btn btn-info" type="button" style="border-radius: 16px; width: 100%; margin:auto;" >Pay</button></a>
+			{%endif%}
+		</div>
+                    <div class="row" style="margin-top: 10px;">
+                        <a href="{{url_for('listbank')}}"><button type="button" style="width:100%; border-radius: 16px; margin-top: 3px;" class="btn btn-outline-primary">Back</button></a>
+                    </div>
+</div>
+</form>
+{%endblock%}

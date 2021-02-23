@@ -1,0 +1,97 @@
+{%extends "index.html"%}
+{%block head%}
+<title>index1</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<style type="text/css">
+	body{
+   background:#f2f2f2;
+
+}
+.box {
+   border-radius: 4px;
+   width : 90px;
+}
+
+.col-lg-2, .col-md-3, .col-xs-6{
+    margin-top: 30px !important;
+}
+h6{
+	text-align: left;
+	margin-top: 20px;
+	text-transform: capitalize;
+
+	</style>
+{%endblock%}
+
+{%block content%}
+<div class="card text-center">
+  <div class="card-header" style="text-align: left;">
+    Home Page
+  </div>
+
+  <div class="card-footer text-muted">
+    Please select your bank
+  </div>
+
+	<!--list bank-->
+ <div class="container">
+	<div class="row">
+    	<div class="col-lg-2 col-md-3 col-xs-6">
+        <div class="box" >
+  		   <a href="{{ url_for('inquiry',bank_id='Acleda Bank',img='https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/ACLEDA_BANK.png') }}"><img src="https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/ACLEDA_BANK.png" alter="logo" style="width:100%;"> </a>
+    		<h6>Acleda Bank</h6>
+		</div>
+    </div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+        <div class="box" id="one">
+  		   <a href="{{ url_for('inquiry',bank_id='Ly Hour Pay',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/lhpp_logo.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/lhpp_logo.jpg" alter="logo" style="width:100%;"> </a>
+    		<h6>Ly Hour Pay</h6>
+   		 </div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+        <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='eMoney',img='https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/emoney_logo.png') }}"><img src="https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/emoney_logo.png" alter="logo" style="width:100%;"> </a>
+    		<h6 style="margin-left:15px;">eMoney</h6>
+    	</div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+       <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='True Money',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/truemoney_logo.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/truemoney_logo.jpg" alter="logo" style="width:100%;"> </a>
+    		<h6>True Money</h6>
+    	</div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+       <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='DARA Pay',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/darapay_logo.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/darapay_logo.jpg" alter="logo" style="width:100%;"> </a>
+   		 <h6 style="margin-left:10px;">DARA Pay</h6>
+    	</div>
+</div>
+       <div class="col-lg-2 col-md-3 col-xs-6 ">
+       <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='Asia Weiluy',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/asia_weiluy_logo.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/asia_weiluy_logo.jpg" alter="logo" style="width:100%;"> </a>
+    	<h6>Asia Weiluy</h6>
+    	</div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+        <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='Pipay Weiluy',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/pipay_logo_2.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/pipay_logo_2.jpg" alter="logo" style="width:100%;"> </a>
+   	 <h6 style="margin-left:25px;">Pipay</h6>
+    </div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+        <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='AMK',img='https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/amk_logo.jpg') }}"><img src="https://b24-upload.s3-ap-southeast-1.amazonaws.com/bank_logos/amk_logo.jpg" alter="logo" style="width:100%;"> </a>
+    	<h6 style="margin-left:25px;">AMK</h6>
+    	</div>
+</div>
+    <div class="col-lg-2 col-md-3 col-xs-6 ">
+        <div class="box">
+  		   <a href="{{ url_for('inquiry',bank_id='Wing',img='https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/wing_logo.jpg') }}"><img src="https://s3-ap-southeast-1.amazonaws.com/b24-upload/bank_logos/wing_logo.jpg" alter="logo" style="width:100%;"> </a>
+    	<h6 style="margin-left:17px;">Wing</h6>
+    	</div>
+</div>
+    </div>
+    </div>
+    </div>
+
+{%endblock%}
